@@ -264,13 +264,23 @@ main {
 
 
 /* ================================================== */
-/* ==== STYLE BARU: DETAIL KEGIATAN (Mirip Sejarah) ==== */
+/* ==== STYLE BARU: DETAIL AKTIVITAS PER HARI ==== */
 /* ================================================== */
-/* CSS .kegiatan-detail-grid dan .kegiatan-detail-item DIHAPUS */
-.aktivitas-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; /* Jarak antar item */
+.aktivitas-harian-list {
+    margin-top: 2rem;
+}
+
+.aktivitas-hari {
+    margin-bottom: 3rem; /* Jarak antar kelompok hari */
+}
+
+.tanggal-aktivitas {
+    font-size: 1.6rem;
+    color: var(--biru-tua);
+    border-bottom: 3px solid var(--merah-tua);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .aktivitas-item {
@@ -278,9 +288,9 @@ main {
     flex-direction: row; /* Foto di samping teks */
     align-items: center;  /* Teks rata tengah vertikal dgn foto */
     gap: 1.5rem;
-    background-color: var(--putih); /* Latar putih (beda dari sejarah) */
+    background-color: var(--putih); /* Latar putih */
     padding: 1.5rem;
-    margin-bottom: 0; /* Margin sudah di-handle 'gap' */
+    margin-bottom: 1.5rem; /* Jarak antar item di hari yg sama */
     border-radius: 8px;
     border-left: 5px solid var(--biru-tua); /* Aksen biru */
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -297,14 +307,17 @@ main {
 .aktivitas-item div { 
     flex: 1; 
 }
-.aktivitas-item h4 { /* Pakai H4 di HTML */
+/* Pakai H5 di HTML */
+.aktivitas-item h5 { 
     color: var(--merah-tua); /* Judul aktivitas merah */
     margin-top: 0; 
-    font-size: 1.5rem; 
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem; 
 }
 .aktivitas-item p {
     font-size: 0.95rem;
     line-height: 1.6;
+    margin: 0;
 }
 /* ======================================= */
 
@@ -518,8 +531,8 @@ main {
 /* Media Query (Tampilan HP) */
 @media (max-width: 768px) {
     /* Atur judul beranda di HP */
-    .hero-title-container { gap: 1rem; }
-    #beranda.hero-section h1 { font-size: 2.5rem; order: 2; }
+    .hero-title-container { gap: 1rem; flex-wrap: wrap; } /* Wrap di HP */
+    #beranda.hero-section h1 { font-size: 2.5rem; order: 2; width: 100%;} /* Judul full width di HP */
     .hero-logo:nth-of-type(1) { order: 1; }
     .hero-logo:nth-of-type(2) { order: 3; }
     .hero-logo { width: 60px; height: 60px; }
@@ -532,15 +545,17 @@ main {
     .timeline-date span { font-size: 1.2rem; }
     .timeline-content { flex-basis: auto; }
     
-    /* Atur profil & sejarah di HP */
+    /* Atur profil & sejarah & aktivitas di HP */
     .sejarah-item,
     .aktivitas-item { /* Targetkan aktivitas item juga */
         flex-direction: column; /* Balikin jadi atas-bawah di HP */
         align-items: center; 
+        text-align: center; /* Teks juga ke tengah */
     }
     .sejarah-item img,
     .aktivitas-item img { /* Targetkan aktivitas item juga */
         width: 100%; 
+        max-width: 300px; /* Batasi lebar gambar di HP */
     }
     .profil-grid { grid-template-columns: 1fr; }
 }

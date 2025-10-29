@@ -52,8 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalNama = document.getElementById('modalNama');
     const modalPeran = document.getElementById('modalPeran');
     const modalSekolah = document.getElementById('modalSekolah');
-    
-    // == AMBIL ELEMEN TELEPON YANG BARU ==
     const modalTelpFasilitator = document.getElementById('modalTelpFasilitator');
     const modalTelpAyah = document.getElementById('modalTelpAyah');
     const modalTelpIbu = document.getElementById('modalTelpIbu');
@@ -66,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const foto = this.dataset.foto;
             const peran = this.dataset.peran;
             const sekolah = this.dataset.sekolah;
-            
-            // == AMBIL DATA TELEPON YANG BARU ==
             const telpFasilitator = this.dataset.telpFasilitator;
             const telpAyah = this.dataset.telpAyah;
             const telpIbu = this.dataset.telpIbu;
@@ -77,8 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
             modalNama.textContent = nama;
             modalPeran.textContent = peran;
             modalSekolah.textContent = "Asal Sekolah: " + sekolah;
-
-            // == MASUKKAN DATA TELEPON YANG BARU ==
             modalTelpFasilitator.textContent = "No. Fasilitator: " + telpFasilitator;
             modalTelpAyah.textContent = "No. Telp Ayah: " + telpAyah;
             modalTelpIbu.textContent = "No. Telp Ibu: " + telpIbu;

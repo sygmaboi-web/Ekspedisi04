@@ -207,12 +207,10 @@ main {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
     border-bottom: 2px solid var(--gold);
-    display: inline-block; /* Biar border-bottom gak full */
     padding-bottom: 5px;
-    /* Trik biar ke tengah */
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%);
+    display: table; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* CSS KEGIATAN (TIMELINE) */
@@ -265,35 +263,48 @@ main {
 .timeline-content li { margin-bottom: 0.5rem; line-height: 1.5; }
 
 
-/* ======================================= */
-/* ==== STYLE BARU: DETAIL KEGIATAN ==== */
-/* ======================================= */
-.kegiatan-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* ================================================== */
+/* ==== STYLE BARU: DETAIL KEGIATAN (Mirip Sejarah) ==== */
+/* ================================================== */
+/* CSS .kegiatan-detail-grid dan .kegiatan-detail-item DIHAPUS */
+.aktivitas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Jarak antar item */
+}
+
+.aktivitas-item {
+    display: flex;
+    flex-direction: row; /* Foto di samping teks */
+    align-items: center;  /* Teks rata tengah vertikal dgn foto */
     gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.kegiatan-detail-item {
-    background-color: var(--putih);
-    border: 1px solid #ddd;
-    border-left: 5px solid var(--biru-tua);
-    border-radius: 8px;
+    background-color: var(--putih); /* Latar putih (beda dari sejarah) */
     padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0; /* Margin sudah di-handle 'gap' */
+    border-radius: 8px;
+    border-left: 5px solid var(--biru-tua); /* Aksen biru */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
-
-.kegiatan-detail-item h4 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.3rem;
-    color: var(--merah-tua);
+.aktivitas-item img { 
+    width: 100%; 
+    max-width: 300px; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    background-color: #eee;
+    flex-shrink: 0; /* Biar gambar gak penyet */
 }
-
-.kegiatan-detail-item p {
+.aktivitas-item div { 
+    flex: 1; 
+}
+.aktivitas-item h4 { /* Pakai H4 di HTML */
+    color: var(--merah-tua); /* Judul aktivitas merah */
+    margin-top: 0; 
+    font-size: 1.5rem; 
+}
+.aktivitas-item p {
     font-size: 0.95rem;
     line-height: 1.6;
-    margin: 0;
 }
 /* ======================================= */
 
@@ -519,4 +530,29 @@ main {
     .timeline-item::before { left: -10px; top: -2px; width: 16px; height: 16px; }
     .timeline-date { flex-basis: auto; text-align: left; padding-right: 0; margin-bottom: 0.5rem; }
     .timeline-date span { font-size: 1.2rem; }
-    .timeline-content { flex-basis
+    .timeline-content { flex-basis: auto; }
+    
+    /* Atur profil & sejarah di HP */
+    .sejarah-item,
+    .aktivitas-item { /* Targetkan aktivitas item juga */
+        flex-direction: column; /* Balikin jadi atas-bawah di HP */
+        align-items: center; 
+    }
+    .sejarah-item img,
+    .aktivitas-item img { /* Targetkan aktivitas item juga */
+        width: 100%; 
+    }
+    .profil-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--biru-tua);
+    color: var(--gold);
+    margin-top: 0;
+    border-top: 5px solid var(--merah-tua);
+    font-size: 0.9rem;
+}

@@ -199,6 +199,22 @@ main {
     text-align: center;
 }
 
+/* Sub-header (Judul kecil di dalam section) */
+.section-subheader {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--biru-tua);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    display: inline-block; /* Biar border-bottom gak full */
+    padding-bottom: 5px;
+    /* Trik biar ke tengah */
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
 /* CSS KEGIATAN (TIMELINE) */
 .timeline {
     position: relative;
@@ -247,6 +263,39 @@ main {
 .timeline-content h3 { margin: 0 0 1rem 0; color: var(--biru-tua); font-size: 1.4rem; }
 .timeline-content ul { margin: 0; padding-left: 1.5rem; }
 .timeline-content li { margin-bottom: 0.5rem; line-height: 1.5; }
+
+
+/* ======================================= */
+/* ==== STYLE BARU: DETAIL KEGIATAN ==== */
+/* ======================================= */
+.kegiatan-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.kegiatan-detail-item {
+    background-color: var(--putih);
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--biru-tua);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.kegiatan-detail-item h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: var(--merah-tua);
+}
+
+.kegiatan-detail-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+/* ======================================= */
 
 
 /* ======================================= */
@@ -419,12 +468,12 @@ main {
 
 
 /* ======================================= */
-/* CSS SEJARAH (INI YANG DIPERBAIKI) */
+/* CSS SEJARAH (Layout Kiri-Kanan) */
 /* ======================================= */
 .sejarah-item {
     display: flex;
-    flex-direction: row; /* <-- DIUBAH DARI COLUMN KE ROW */
-    align-items: center;  /* <-- DITAMBAHKAN BIAR RAPI */
+    flex-direction: row; /* Foto di samping teks */
+    align-items: center;  /* Teks rata tengah vertikal dgn foto */
     gap: 1.5rem;
     background-color: var(--latar-alternatif);
     padding: 1.5rem;
@@ -449,6 +498,10 @@ main {
     margin-top: 0; 
     font-size: 1.5rem; 
 }
+.sejarah-item p {
+    font-size: 0.95rem; /* Pastikan teksnya rapi */
+    line-height: 1.6;
+}
 
 
 /* Media Query (Tampilan HP) */
@@ -466,25 +519,4 @@ main {
     .timeline-item::before { left: -10px; top: -2px; width: 16px; height: 16px; }
     .timeline-date { flex-basis: auto; text-align: left; padding-right: 0; margin-bottom: 0.5rem; }
     .timeline-date span { font-size: 1.2rem; }
-    .timeline-content { flex-basis: auto; }
-    
-    /* Atur profil & sejarah di HP */
-    .sejarah-item { 
-        flex-direction: column; /* <-- KEMBALI JADI COLUMN DI HP */
-        align-items: center; 
-    }
-    .sejarah-item img { width: 100%; }
-    .profil-grid { grid-template-columns: 1fr; }
-}
-
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--biru-tua);
-    color: var(--gold);
-    margin-top: 0;
-    border-top: 5px solid var(--merah-tua);
-    font-size: 0.9rem;
-}
+    .timeline-content { flex-basis
